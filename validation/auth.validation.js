@@ -1,5 +1,4 @@
 import joi from "joi";
-import { APIError } from "../errors/error.js";
 
 export class authValidation{
     constructor(){}
@@ -37,9 +36,9 @@ export class authValidation{
 
         }catch(error){
             const errorMessages= error.details.map(detail=>detail.message)
-            throw new APIError(errorMessages.join(","));
+            console.log(errorMessages);
         }
-        next()
+        next();
     };
     static login = async (req, res, next) => {
         try {
@@ -63,7 +62,7 @@ export class authValidation{
 
         } catch (error) {
             const errorMessages = error.details.map(detail => detail.message);
-            throw new APIError(errorMessages.join(", "));
+            console.log(errorMessages);
         }
         next();
     }

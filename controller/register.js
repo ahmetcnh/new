@@ -21,7 +21,7 @@ export const register = async (req, res) => {
         email,
         password: hashedPassword,
       });
-      createToken(newUser,res);
+
       const savedUser = await newUser.save();
       
       return new Response(savedUser, "kullanici veritabanina kaydedildi").created(res);
